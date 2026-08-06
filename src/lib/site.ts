@@ -1,5 +1,8 @@
-/** Phase0: replace when contact channel is decided */
-export const CONTACT_EMAIL = "hello@freewater.example";
+/**
+ * Phase0: set a real address when the contact channel is decided.
+ * null = do not render a mailto link.
+ */
+export const CONTACT_EMAIL: string | null = null;
 
 export const SECTIONS = [
   { id: "about", label: "Free Waterとは" },

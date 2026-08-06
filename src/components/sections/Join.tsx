@@ -8,26 +8,31 @@ export function Join() {
         <li>
           <p className="text-foreground">スポンサー</p>
           <p className="mt-1.5 text-muted">
-            活動を支える側として、名前を出せます。
+            水の調達や配布に協力する企業・団体を募集しています。
           </p>
         </li>
         <li>
           <p className="text-foreground">イベント</p>
-          <p className="mt-1.5 text-muted">会場で水を配る協力ができます。</p>
+          <p className="mt-1.5 text-muted">
+            水を配布できる場所やイベントについてご相談いただけます。
+          </p>
         </li>
       </ul>
 
       <div className="mt-12 border-t border-line pt-8">
         <p className="text-sm text-muted">連絡先</p>
-        <a
-          className="mt-2 inline-block text-base text-foreground underline-offset-4 hover:underline"
-          href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Free Water について")}`}
-        >
-          {CONTACT_EMAIL}
-        </a>
-        <p className="mt-4 max-w-sm text-sm text-muted">
-          件名に「スポンサー」または「イベント」と書いてください。
-        </p>
+        {CONTACT_EMAIL ? (
+          <a
+            className="mt-2 inline-block text-base text-foreground underline-offset-4 hover:underline"
+            href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Free Water について")}`}
+          >
+            {CONTACT_EMAIL}
+          </a>
+        ) : (
+          <p className="mt-2 text-base text-foreground">
+            お問い合わせ窓口は準備中です。
+          </p>
+        )}
       </div>
     </Section>
   );

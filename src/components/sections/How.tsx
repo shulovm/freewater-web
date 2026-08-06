@@ -1,6 +1,6 @@
 import { Section } from "../Section";
 
-const steps = ["安全な水", "無料で届ける", "続ける協力"] as const;
+const steps = ["安全な水", "無料で届ける", "協力で続ける"] as const;
 
 export function How() {
   return (
@@ -28,9 +28,9 @@ export function How() {
       </ol>
 
       <p className="mt-10 max-w-md text-sm leading-relaxed text-muted">
-        水は売っていません。
+        水を受け取る人から料金は取りません。
         <br />
-        活動は、協力に支えられています。
+        活動を継続するため、企業や団体との協力を募っています。
       </p>
     </Section>
   );
