@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f4f6f8;
+  --foreground: #1c2429;
+  --muted: #5c6b75;
+  --line: #d5dde3;
+  --surface: #ffffff;
+  --water: #6b8a9a;
+  --water-soft: #e4eef2;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-surface: var(--surface);
+  --color-water: var(--water);
+  --color-water-soft: var(--water-soft);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--water) 28%, white);
+}
+
+@keyframes fw-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fw-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fw-breathe {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(4px);
+  }
+}
+
+.fw-fade-up {
+  animation: fw-fade-up 0.9s ease-out both;
+}
+
+.fw-fade-up-delay {
+  animation: fw-fade-up 0.9s ease-out 0.18s both;
+}
+
+.fw-fade-in {
+  animation: fw-fade 1.2s ease-out 0.4s both;
+}
+
+.fw-breathe {
+  animation: fw-breathe 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .fw-fade-up,
+  .fw-fade-up-delay,
+  .fw-fade-in,
+  .fw-breathe {
+    animation: none;
+  }
+}
