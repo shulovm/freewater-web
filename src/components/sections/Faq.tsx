@@ -17,15 +17,27 @@ const faqs = [
 
 export function Faq() {
   return (
-    <Section id="faq" title="FAQ">
-      <dl className="space-y-10">
+    <Section id="faq" title="FAQ" density="compact">
+      <div className="divide-y divide-line border-t border-line">
         {faqs.map((item) => (
-          <div key={item.q} className="border-t border-line pt-6">
-            <dt className="text-base font-medium text-foreground">{item.q}</dt>
-            <dd className="mt-3 text-base leading-relaxed text-muted">{item.a}</dd>
-          </div>
+          <details key={item.q} className="group py-4">
+            <summary className="cursor-pointer list-none text-sm text-foreground marker:content-none [&::-webkit-details-marker]:hidden">
+              <span className="flex items-baseline justify-between gap-4">
+                <span>{item.q}</span>
+                <span
+                  aria-hidden
+                  className="shrink-0 text-muted/60 transition-transform group-open:rotate-45"
+                >
+                  +
+                </span>
+              </span>
+            </summary>
+            <p className="mt-3 pr-8 text-sm leading-relaxed text-muted">
+              {item.a}
+            </p>
+          </details>
         ))}
-      </dl>
+      </div>
     </Section>
   );
 }

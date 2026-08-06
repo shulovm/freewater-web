@@ -43,10 +43,11 @@ body {
   background: color-mix(in srgb, var(--water) 28%, white);
 }
 
+/* Quiet entrance — no decorative motion beyond presence */
 @keyframes fw-fade-up {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(8px);
   }
   to {
     opacity: 1;
@@ -63,32 +64,16 @@ body {
   }
 }
 
-@keyframes fw-breathe {
-  0%,
-  100% {
-    opacity: 0.35;
-    transform: translateY(0);
-  }
-  50% {
-    opacity: 0.8;
-    transform: translateY(4px);
-  }
-}
-
 .fw-fade-up {
-  animation: fw-fade-up 0.9s ease-out both;
+  animation: fw-fade-up 0.85s ease-out both;
 }
 
 .fw-fade-up-delay {
-  animation: fw-fade-up 0.9s ease-out 0.18s both;
+  animation: fw-fade-up 0.85s ease-out 0.2s both;
 }
 
 .fw-fade-in {
-  animation: fw-fade 1.2s ease-out 0.4s both;
-}
-
-.fw-breathe {
-  animation: fw-breathe 2.4s ease-in-out infinite;
+  animation: fw-fade 1s ease-out 0.55s both;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -98,8 +83,7 @@ body {
 
   .fw-fade-up,
   .fw-fade-up-delay,
-  .fw-fade-in,
-  .fw-breathe {
+  .fw-fade-in {
     animation: none;
   }
 }

@@ -4,18 +4,33 @@ type SectionProps = {
   id: string;
   title?: string;
   children: ReactNode;
-  /** Extra vertical space (hero already fills viewport) */
-  spacious?: boolean;
+  /**
+   * compact: thin content — keep the site from feeling long
+   * comfortable: default reading rhythm
+   * statement: definition / weight (e.g. About)
+   */
+  density?: "compact" | "comfortable" | "statement";
 };
 
-export function Section({ id, title, children, spacious = true }: SectionProps) {
+const densityClass = {
+  compact: "py-14 md:py-20",
+  comfortable: "py-20 md:py-28",
+  statement: "py-24 md:py-32",
+} as const;
+
+export function Section({
+  id,
+  title,
+  children,
+  density = "comfortable",
+}: SectionProps) {
   return (
     <section
       id={id}
-      className={`mx-auto w-full max-w-2xl px-6 ${spacious ? "py-24 md:py-32" : "py-16"}`}
+      className={`mx-auto w-full max-w-2xl px-5 sm:px-8 ${densityClass[density]}`}
     >
       {title ? (
-        <h2 className="mb-10 font-[family-name:var(--font-display)] text-sm font-medium tracking-[0.14em] text-water uppercase">
+        <h2 className="mb-8 font-[family-name:var(--font-display)] text-[0.6875rem] font-medium tracking-[0.16em] text-water uppercase md:mb-10 md:text-xs">
           {title}
         </h2>
       ) : null}

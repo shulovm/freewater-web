@@ -7,19 +7,19 @@ const metrics = [
 
 export function Metrics() {
   return (
-    <Section id="metrics" title="活動実績">
-      <dl className="grid gap-10 sm:grid-cols-2">
+    <Section id="metrics" title="活動実績" density="compact">
+      <dl className="flex flex-col gap-8 sm:flex-row sm:gap-16">
         {metrics.map((item) => (
-          <div key={item.label} className="border-t border-line pt-5">
+          <div key={item.label}>
             <dt className="text-sm text-muted">{item.label}</dt>
-            <dd className="mt-3 font-[family-name:var(--font-display)] text-4xl font-normal tracking-tight text-foreground">
+            <dd className="mt-2 font-[family-name:var(--font-display)] text-2xl font-normal tracking-wide text-foreground/70">
               {item.value}
             </dd>
           </div>
         ))}
       </dl>
-      <p className="mt-12 text-sm text-muted">最終更新：—</p>
-      <p className="mt-4 text-sm text-muted">
+      <p className="mt-10 text-sm text-muted">最終更新：—</p>
+      <p className="mt-3 text-sm text-muted">
         数字は活動に合わせて更新します。
       </p>
     </Section>
