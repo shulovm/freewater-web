@@ -2,9 +2,15 @@ import { Section } from "../Section";
 
 const nodes = ["企業・団体", "Free Water", "無料で届ける", "みんな"] as const;
 
+/** Deepest stop — the diagram carries understanding before any sentence */
 export function How() {
   return (
-    <Section id="how" title="Free Waterの仕組み" density="comfortable">
+    <Section
+      id="how"
+      title="Free Waterの仕組み"
+      density="focus"
+      titleTone="structure"
+    >
       <ol className="mx-auto flex max-w-xs list-none flex-col items-center p-0">
         {nodes.map((label, i) => {
           const isHub = label === "Free Water";
@@ -15,10 +21,10 @@ export function How() {
               <p
                 className={
                   isHub
-                    ? "font-[family-name:var(--font-display)] text-sm tracking-[0.2em] text-water"
+                    ? "font-[family-name:var(--font-display)] text-sm tracking-[0.22em] text-water sm:text-[0.9375rem]"
                     : isAction
-                      ? "text-[0.9375rem] tracking-tight text-foreground sm:text-base"
-                      : "text-sm tracking-tight text-muted"
+                      ? "text-base tracking-tight text-foreground sm:text-[1.0625rem]"
+                      : "text-sm tracking-tight text-muted/85"
                 }
               >
                 {label}
@@ -26,10 +32,10 @@ export function How() {
               {i < nodes.length - 1 ? (
                 <span
                   aria-hidden
-                  className="mt-3 mb-3 flex flex-col items-center text-line"
+                  className="mt-4 mb-4 flex flex-col items-center"
                 >
-                  <span className="h-5 w-px bg-line" />
-                  <span className="text-[0.55rem] leading-none text-muted/40">
+                  <span className="h-7 w-px bg-line" />
+                  <span className="text-[0.5rem] leading-none text-muted/35">
                     ▼
                   </span>
                 </span>
@@ -39,7 +45,7 @@ export function How() {
         })}
       </ol>
 
-      <p className="mx-auto mt-10 max-w-md text-center text-sm leading-[1.75] text-muted/80">
+      <p className="mx-auto mt-14 max-w-sm text-center text-sm leading-[1.8] text-muted/70">
         この活動は、協力によって続いています。
       </p>
     </Section>
