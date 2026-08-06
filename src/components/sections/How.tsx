@@ -1,36 +1,46 @@
 import { Section } from "../Section";
 
-const steps = ["安全な水", "無料で届ける", "協力で続ける"] as const;
+const nodes = ["企業・団体", "Free Water", "無料で届ける", "みんな"] as const;
 
 export function How() {
   return (
     <Section id="how" title="Free Waterの仕組み" density="comfortable">
-      <ol className="max-w-sm">
-        {steps.map((step, i) => (
-          <li key={step} className="flex gap-4">
-            <div className="flex w-5 shrink-0 flex-col items-center">
-              <span className="font-[family-name:var(--font-display)] text-[0.625rem] leading-5 tracking-[0.08em] text-water tabular-nums">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              {i < steps.length - 1 ? (
-                <span aria-hidden className="mt-1 w-px flex-1 bg-line" />
+      <ol className="mx-auto flex max-w-xs list-none flex-col items-center p-0">
+        {nodes.map((label, i) => {
+          const isHub = label === "Free Water";
+          const isAction = label === "無料で届ける";
+
+          return (
+            <li key={label} className="flex w-full flex-col items-center">
+              <p
+                className={
+                  isHub
+                    ? "font-[family-name:var(--font-display)] text-sm tracking-[0.2em] text-water"
+                    : isAction
+                      ? "text-[0.9375rem] tracking-tight text-foreground sm:text-base"
+                      : "text-sm tracking-tight text-muted"
+                }
+              >
+                {label}
+              </p>
+              {i < nodes.length - 1 ? (
+                <span
+                  aria-hidden
+                  className="mt-3 mb-3 flex flex-col items-center text-line"
+                >
+                  <span className="h-5 w-px bg-line" />
+                  <span className="text-[0.55rem] leading-none text-muted/40">
+                    ▼
+                  </span>
+                </span>
               ) : null}
-            </div>
-            <p
-              className={`text-[0.9375rem] leading-snug tracking-tight text-foreground sm:text-base ${
-                i < steps.length - 1 ? "pb-7" : ""
-              }`}
-            >
-              {step}
-            </p>
-          </li>
-        ))}
+            </li>
+          );
+        })}
       </ol>
 
-      <p className="mt-9 max-w-md text-sm leading-[1.75] text-muted">
-        水を受け取る人から料金は取りません。
-        <br />
-        活動を継続するため、企業や団体との協力を募っています。
+      <p className="mx-auto mt-10 max-w-md text-center text-sm leading-[1.75] text-muted/80">
+        この活動は、協力によって続いています。
       </p>
     </Section>
   );
