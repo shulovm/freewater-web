@@ -23,8 +23,8 @@ const densityClass = {
   bridge: "pt-20 pb-8 md:pt-28 md:pb-10",
   note: "pt-6 pb-14 md:pt-8 md:pb-16",
   focus: "py-24 md:py-32",
-  soft: "py-16 md:py-20",
-  whisper: "pt-10 pb-8 md:pt-12 md:pb-10",
+  soft: "py-16 pb-20 md:py-20 md:pb-24",
+  whisper: "pt-10 pb-6 md:pt-12 md:pb-8",
 } as const;
 
 const titleToneClass = {

@@ -8,6 +8,10 @@
   --surface: #ffffff;
   --water: #6b8a9a;
   --water-soft: #e4eef2;
+  /* Growth rhythm — share spacing as content expands */
+  --fw-content-max: 42rem;
+  --fw-stack: 1.25rem;
+  --fw-metric-value: 1rem;
 }
 
 @theme inline {

@@ -15,7 +15,7 @@ const faqs = [
   },
 ] as const;
 
-/** For those who still need a check — soft exit, not a second briefing */
+/** For those who still need a check — soft bridge into the continuing footer */
 export function Faq() {
   return (
     <Section
@@ -25,7 +25,7 @@ export function Faq() {
       titleTone="quiet"
       titleTight
     >
-      <div className="divide-y divide-line/70 border-t border-line/70">
+      <div className="divide-y divide-line/60 border-t border-line/60">
         {faqs.map((item) => (
           <details key={item.q} className="group py-3">
             <summary className="cursor-pointer list-none text-sm leading-snug text-foreground/80 marker:content-none [&::-webkit-details-marker]:hidden">

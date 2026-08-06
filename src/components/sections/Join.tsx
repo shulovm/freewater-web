@@ -1,26 +1,57 @@
-import { CONTACT_EMAIL } from "../../lib/site";
+import {
+  CONTACT_EMAIL,
+  JOIN_WAYS,
+  PARTNERS,
+  PLACEMENTS,
+} from "../../lib/site";
 import { Section } from "../Section";
 
-/** A calm option after understanding — not a sales close */
+/**
+ * Calm vessel for participation.
+ * Ways → (optional partners) → (optional placements) → single contact.
+ * Grows by filling arrays in site.ts — never by adding sales chrome.
+ */
 export function Join() {
   return (
     <Section id="join" title="協力する" density="soft" titleTone="structure">
       <ul className="space-y-5 text-sm leading-[1.8] sm:text-[0.9375rem]">
-        <li>
-          <p className="text-foreground/90">スポンサー</p>
-          <p className="mt-1 text-muted">
-            水の調達や配布に協力する企業・団体を募集しています。
-          </p>
-        </li>
-        <li>
-          <p className="text-foreground/90">イベント</p>
-          <p className="mt-1 text-muted">
-            水を配布できる場所やイベントについてご相談いただけます。
-          </p>
-        </li>
+        {JOIN_WAYS.map((way) => (
+          <li key={way.title}>
+            <p className="text-foreground/90">{way.title}</p>
+            <p className="mt-1 text-muted">{way.body}</p>
+          </li>
+        ))}
       </ul>
 
-      <div className="mt-9 border-t border-line/80 pt-6">
+      {/* Reserved: named partners as a quiet text list when facts exist */}
+      {PARTNERS.length > 0 ? (
+        <ul className="mt-10 space-y-2 border-t border-line/60 pt-7 text-sm leading-normal text-muted">
+          {PARTNERS.map((p) => (
+            <li key={p.name}>{p.name}</li>
+          ))}
+        </ul>
+      ) : (
+        <div className="mt-8" aria-hidden />
+      )}
+
+      {/* Reserved: placement references (e.g. 掲載イメージ) — text/links only */}
+      {PLACEMENTS.length > 0 ? (
+        <ul className="mt-8 space-y-2 text-sm leading-normal text-muted">
+          {PLACEMENTS.map((item) => (
+            <li key={item.label}>
+              {item.href ? (
+                <a href={item.href} className="hover:text-foreground">
+                  {item.label}
+                </a>
+              ) : (
+                item.label
+              )}
+            </li>
+          ))}
+        </ul>
+      ) : null}
+
+      <div className="mt-10 border-t border-line/80 pt-6">
         <p className="text-sm leading-normal text-muted/80">連絡先</p>
         {CONTACT_EMAIL ? (
           <a
