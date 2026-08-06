@@ -20,19 +20,19 @@ export function Faq() {
     <Section id="faq" title="FAQ" density="compact">
       <div className="divide-y divide-line border-t border-line">
         {faqs.map((item) => (
-          <details key={item.q} className="group py-4">
-            <summary className="cursor-pointer list-none text-sm text-foreground marker:content-none [&::-webkit-details-marker]:hidden">
+          <details key={item.q} className="group py-3.5">
+            <summary className="cursor-pointer list-none text-sm leading-snug text-foreground marker:content-none [&::-webkit-details-marker]:hidden">
               <span className="flex items-baseline justify-between gap-4">
                 <span>{item.q}</span>
                 <span
                   aria-hidden
-                  className="shrink-0 text-muted/60 transition-transform group-open:rotate-45"
+                  className="shrink-0 text-muted/50 transition-transform group-open:rotate-45"
                 >
                   +
                 </span>
               </span>
             </summary>
-            <p className="mt-3 pr-8 text-sm leading-relaxed text-muted">
+            <p className="mt-2.5 pr-8 text-sm leading-[1.7] text-muted">
               {item.a}
             </p>
           </details>

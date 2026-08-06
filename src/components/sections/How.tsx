@@ -7,9 +7,9 @@ export function How() {
     <Section id="how" title="Free Waterの仕組み" density="comfortable">
       <ol className="max-w-sm">
         {steps.map((step, i) => (
-          <li key={step} className="flex gap-5">
-            <div className="flex w-6 shrink-0 flex-col items-center">
-              <span className="font-[family-name:var(--font-display)] text-[0.6875rem] leading-6 tracking-[0.08em] text-water tabular-nums">
+          <li key={step} className="flex gap-4">
+            <div className="flex w-5 shrink-0 flex-col items-center">
+              <span className="font-[family-name:var(--font-display)] text-[0.625rem] leading-5 tracking-[0.08em] text-water tabular-nums">
                 {String(i + 1).padStart(2, "0")}
               </span>
               {i < steps.length - 1 ? (
@@ -17,8 +17,8 @@ export function How() {
               ) : null}
             </div>
             <p
-              className={`text-base tracking-tight text-foreground sm:text-lg ${
-                i < steps.length - 1 ? "pb-8" : ""
+              className={`text-[0.9375rem] leading-snug tracking-tight text-foreground sm:text-base ${
+                i < steps.length - 1 ? "pb-7" : ""
               }`}
             >
               {step}
@@ -27,7 +27,7 @@ export function How() {
         ))}
       </ol>
 
-      <p className="mt-10 max-w-md text-sm leading-relaxed text-muted">
+      <p className="mt-9 max-w-md text-sm leading-[1.75] text-muted">
         水を受け取る人から料金は取りません。
         <br />
         活動を継続するため、企業や団体との協力を募っています。
